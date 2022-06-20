@@ -1,0 +1,101 @@
+@use '/src/styles/constants/colors';
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+  background-color: colors.$BACKGROUND;
+  box-shadow: rgba(0, 0, 0, 24%) 0 0 8px;
+
+  .searchWrapper {
+    width: 70%;
+    height: 100%;
+
+    .searchInput {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 15px;
+      background-color: colors.$BACKGROUND;
+      border: 1px solid colors.$MAINBLUE;
+      border-radius: 5px;
+
+      input {
+        width: 93%;
+        margin-left: 5px;
+      }
+
+      .icon {
+        width: 25px;
+        color: colors.$GRAY6;
+      }
+
+      button {
+        height: 25px;
+      }
+    }
+
+    .searchList {
+      display: none;
+      width: 100%;
+      padding: 10px 0;
+      margin-top: 10px;
+      color: colors.$BLACK;
+      border-radius: 5px;
+
+      .searchItem {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+
+        .searchItemLink {
+          display: flex;
+          justify-content: space-between;
+          font-size: 16px;
+          line-height: 24px;
+          color: colors.$BLACK;
+        }
+
+        .deleteItem {
+          width: 30px;
+          font-size: 16px;
+          font-weight: 500;
+
+          .icon {
+            width: 20px;
+          }
+        }
+      }
+
+      li:hover {
+        background-color: colors.$GRAYE;
+      }
+
+      .recentSearch {
+        .recentWrapper {
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            margin: 3px 0 5px;
+            font-size: 14px;
+            font-weight: 300;
+          }
+
+          .deleteBtn {
+            font-weight: 300;
+          }
+        }
+
+        ul {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .isOpen {
+      display: block;
+    }
+  }
+}
