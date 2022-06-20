@@ -1,0 +1,87 @@
+@use '/src/styles/constants/colors';
+
+.itemWrapper {
+  border-bottom: 1px solid colors.$GRAYE;
+
+  .item {
+    display: flex;
+    height: 100%;
+    padding: 15px 12px;
+    color: colors.$BLACK;
+
+    .image {
+      width: 70px;
+      border: 1px solid colors.$GRAYE;
+      box-shadow: rgba(50, 50, 93, 25%) 0 2px 5px -1px, rgba(0, 0, 0, 30%) 0 1px 3px -1px;
+    }
+
+    .content {
+      width: 100%;
+      margin-left: 12px;
+
+      :root[color-theme='dark'] & {
+        color: colors.$WHITE;
+      }
+
+      .bookWrap {
+        height: 75%;
+
+        .bookTitle {
+          font-size: 15px;
+        }
+
+        .bookAuthor {
+          margin: 5px 0;
+          font-size: 12px;
+          font-weight: 200;
+        }
+
+        .bookPrice {
+          font-size: 13px;
+        }
+
+        .isSoldout {
+          color: colors.$GRAYA;
+          text-decoration: line-through;
+        }
+      }
+
+      .buttonWrap {
+        float: right;
+        height: 25%;
+
+        .deleteBtn {
+          width: 50px;
+          height: 25px;
+          font-size: 12px;
+          background-color: colors.$WHITE;
+          border: 1px solid colors.$GRAYA;
+          border-radius: 5px;
+        }
+
+        .buyBtn {
+          width: 50px;
+          height: 25px;
+          margin-left: 10px;
+          font-size: 12px;
+          color: colors.$WHITE;
+          background: colors.$BLUE;
+          border-radius: 5px;
+        }
+
+        .isSoldout {
+          text-decoration: none;
+          pointer-events: none;
+          background-color: colors.$GRAYA;
+        }
+      }
+    }
+  }
+
+  .soldoutMsg {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: colors.$GRAY6;
+    text-align: center;
+  }
+}

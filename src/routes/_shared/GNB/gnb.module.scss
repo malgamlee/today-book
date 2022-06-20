@@ -1,0 +1,52 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.gnb {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 12px;
+  line-height: 60px;
+
+  .title {
+    font-size: 15px;
+    font-weight: 700;
+
+    :root[color-theme='dark'] & {
+      color: colors.$WHITE;
+    }
+  }
+
+  .button {
+    position: relative;
+    margin-left: 10px;
+
+    .svg {
+      height: 50px;
+      padding: 15px 5px;
+      line-height: 50px;
+      color: colors.$BLACK;
+
+      :root[color-theme='dark'] & {
+        color: colors.$WHITE;
+      }
+    }
+
+    .svg:hover {
+      color: colors.$GRAYA;
+    }
+
+    .countCartStore {
+      position: absolute;
+      top: 7px;
+      right: -3px;
+      width: 15px;
+      height: 15px;
+      font-size: 5px;
+      line-height: 15px;
+      background-color: colors.$RED;
+      border-radius: 10px;
+    }
+  }
+}

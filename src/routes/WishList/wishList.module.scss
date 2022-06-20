@@ -1,0 +1,27 @@
+@use '/src/styles/constants/colors';
+
+.wish {
+  width: 100%;
+  overflow: scroll;
+
+  .wishContent {
+    width: 100%;
+
+    .wishList {
+      margin-top: 55px;
+
+      .searchForm {
+        padding: 0 12px 5px;
+      }
+    }
+
+    .allBuyBtn {
+      width: 100%;
+      height: 50px;
+      margin: 5px 0 20px;
+      color: colors.$WHITE;
+      background-color: blue;
+      border-radius: 5px;
+    }
+  }
+}

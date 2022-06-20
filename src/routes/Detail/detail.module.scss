@@ -1,0 +1,94 @@
+@use '/src/styles/constants/colors';
+
+.detail {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .book {
+    display: flex;
+    margin-bottom: 100px;
+
+    .bookImg {
+      width: 250px;
+      border: 1px solid colors.$GRAYE;
+      box-shadow: rgba(0, 0, 0, 19%) 0 10px 20px, rgba(0, 0, 0, 23%) 0 6px 6px;
+    }
+
+    .contents {
+      width: 100%;
+
+      .bookTitle {
+        margin: 15px 0 100px 50px;
+
+        .title {
+          margin-bottom: 15px;
+          font-size: 30px;
+          font-weight: 500;
+        }
+
+        .author {
+          margin: 10px 0;
+          color: colors.$GRAY6;
+        }
+      }
+
+      .buttonWrapper {
+        float: right;
+
+        .smallBtn {
+          width: 70px;
+          height: 70px;
+          margin-left: 10px;
+          border: 1px solid colors.$GRAYA;
+          border-radius: 5px;
+          transition: all 0.2s ease-in;
+
+          .icon {
+            width: 25px;
+            height: 25px;
+          }
+
+          p {
+            font-size: 12px;
+          }
+        }
+
+        .isInCart,
+        .isInLike {
+          color: colors.$RED;
+        }
+
+        .smallBtn:hover {
+          .icon {
+            color: colors.$RED;
+          }
+        }
+      }
+    }
+  }
+
+  .partTitle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid colors.$GRAYD;
+  }
+
+  a {
+    font-size: 14px;
+    color: colors.$BLACK;
+  }
+
+  .explain {
+    margin-bottom: 70px;
+    line-height: 30px;
+
+    a {
+      font-weight: 500;
+      color: colors.$BLACK;
+    }
+  }
+}

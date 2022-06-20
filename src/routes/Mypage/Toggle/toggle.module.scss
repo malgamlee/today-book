@@ -1,0 +1,63 @@
+@use '/src/styles/constants/colors';
+
+.toggle {
+  box-sizing: border-box;
+  height: 30px;
+  padding: 3px;
+  margin: 0 auto;
+  background-color: colors.$GRAYE;
+  border-radius: 95px;
+  box-shadow: rgba(0, 0, 0, 16%) 0 1px 4px;
+
+  .wrapper {
+    position: relative;
+    width: 95px;
+    height: 30px;
+
+    .toggleMove {
+      width: 43px;
+      height: 25px;
+      background-color: colors.$BLUE;
+      border: none;
+      border-radius: 100px;
+      box-shadow: rgba(0, 0, 0, 16%) 0 1px 4px;
+      transition: all 0.2s ease-in;
+      transform: translateX(0);
+    }
+
+    .move {
+      transform: translateX(53px);
+    }
+
+    .buttons {
+      position: absolute;
+      top: 0;
+      width: 95px;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 100px;
+
+      .button {
+        width: 47px;
+        height: 28px;
+        font-size: 14px;
+        color: colors.$GRAYA;
+        cursor: pointer;
+        border: none;
+        border-radius: 100px;
+        outline: none;
+        transition: 0.2s;
+
+        .icon {
+          width: 20px;
+          color: colors.$GRAY6;
+        }
+
+        .clicked {
+          color: colors.$WHITE;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use '/src/styles/constants/colors';
+
+.event {
+  .banner {
+    height: 500px;
+    padding-top: 100px;
+    text-align: center;
+    background: colors.$BANNER; /* fallback for old browsers */
+    background: linear-gradient(to top, colors.$BACKGROUND, colors.$BANNER); /* Chrome 10-25, Safari 5.1-6 */
+    background-color: colors.$BANNER;
+    border-radius: 10px;
+
+    .content {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 80px;
+
+      .contentLeft {
+        width: 20%;
+        text-align: left;
+
+        .title {
+          font-size: 50px;
+          font-weight: 700;
+          line-height: 70px;
+        }
+
+        .under {
+          font-size: 20px;
+          font-weight: 300;
+          letter-spacing: 7px;
+        }
+      }
+
+      .contentRight {
+        width: 30%;
+        margin-left: 50px;
+        background-color: yellow;
+      }
+    }
+
+    .goBtn {
+      float: bottom;
+      width: 300px;
+      height: 70px;
+      margin-top: 60px;
+      font-size: 25px;
+      color: colors.$WHITE;
+      background-color: #034aa6;
+      border-radius: 10px;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@use '/src/styles/constants/colors';
+
+.main {
+  position: relative;
+  width: 100%;
+  padding: 0 0 24px;
+
+  :root[color-theme='dark'] & {
+    .mainWrapper {
+      color: colors.$WHITE;
+    }
+  }
+
+  .mainWrapper {
+    width: 100%;
+    padding: 5px 12px 0;
+    font-size: 13px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .mobileSearch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    padding: 10px;
+    background-color: colors.$WHITE;
+
+    :root[color-theme='dark'] & {
+      background-color: colors.$GRAY2;
+
+      .searchList {
+        background-color: colors.$GRAY2;
+
+        .searchValueList {
+          .searchItem {
+            .bookTitle {
+              color: colors.$WHITE;
+            }
+          }
+        }
+      }
+    }
+
+    .searchList {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 740px;
+      padding: 0 0 10px;
+      margin-top: 10px;
+      background-color: white;
+
+      .searchValueList {
+        .searchItem {
+          height: 40px;
+          padding: 0 10px;
+          line-height: 40px;
+
+          .searchItemLink {
+            display: flex;
+
+            .bookTitle {
+              display: block;
+              width: 85%;
+              margin-right: 10px;
+              overflow: hidden;
+              font-size: 14px;
+              color: colors.$BLACK;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            .bookAuthors {
+              width: 15%;
+              overflow: hidden;
+              font-size: 12px;
+              color: colors.$GRAYA;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+
+        :hover {
+          background-color: lightblue;
+        }
+      }
+    }
+  }
+
+  .isShow {
+    display: block;
+  }
+}

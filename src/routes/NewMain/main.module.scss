@@ -1,0 +1,43 @@
+@use '/src/styles/constants/colors';
+
+.main {
+  .banner {
+    height: 300px;
+    padding: 50px;
+    background-color: colors.$BANNER;
+    border-radius: 10px;
+
+    .title {
+      display: flex;
+      font-size: 35px;
+      line-height: 40px;
+
+      p {
+        font-weight: 700;
+      }
+    }
+
+    .under {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 5px;
+    }
+
+    .goBtn {
+      float: bottom;
+      width: 170px;
+      height: 40px;
+      margin-top: 30px;
+      font-size: 16px;
+      color: colors.$WHITE;
+      background-color: #034aa6;
+      border-radius: 10px;
+    }
+  }
+
+  .section {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
