@@ -11,6 +11,7 @@ interface Props {
   search: string
   title: string
   next: boolean
+  isLink: boolean
 }
 
 interface Items {
@@ -28,7 +29,7 @@ interface Items {
   url: string
 }
 
-const BookList = ({ search, title, next }: Props) => {
+const BookList = ({ search, title, next, isLink }: Props) => {
   const [pageNum, setPageNum] = useState(1)
   const [itemList, setItemList] = useState<Array<Items>>([])
   const [isLoaded, setIsLoaded] = useState(false)
@@ -92,14 +93,18 @@ const BookList = ({ search, title, next }: Props) => {
       .filter((item: Items) => item.title !== title)
       .map((item: Items) => (
         <li key={item.isbn} className={styles.item}>
-          <Link to={`../detail/${item.publisher} ${item.title}`}>
-            {item.thumbnail === '' ? (
-              <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
-            ) : (
-              <img className={styles.bookImg} src={item.thumbnail} alt={`${item.title}_img`} />
-            )}
-            <div className={styles.bookTitle}>{item.title}</div>
-          </Link>
+          {isLink ? (
+            <Link to={`../detail/${item.publisher} ${item.title}`}>
+              {item.thumbnail === '' ? (
+                <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
+              ) : (
+                <img className={styles.bookImg} src={item.thumbnail} alt={`${item.title}_img`} />
+              )}
+              <div className={styles.bookTitle}>{item.title}</div>
+            </Link>
+          ) : (
+            <div>dsf</div>
+          )}
         </li>
       ))
 
@@ -109,7 +114,7 @@ const BookList = ({ search, title, next }: Props) => {
         <div>
           <ul className={styles.bookList}>{bookItems}</ul>
           <div ref={target}>
-            {!moreData && isLoaded && (
+            {search && !moreData && isLoaded && (
               <div className={styles.loadingIcon}>
                 <Loading />
               </div>

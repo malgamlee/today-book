@@ -12,10 +12,11 @@ import { themeState } from 'states/system'
 import { useRecoil } from 'hooks/state'
 import { useEffect } from 'react'
 import NewMain from './NewMain'
-import Event from './Event'
+import BookCard from './BookCard'
 import Recommend from './Recommend'
 import Detail from './Detail'
 import NewMyPage from './NewMyPage'
+import SearchBook from './BookCard/SearchBook'
 
 const App = () => {
   const [theme] = useRecoil(themeState)
@@ -39,7 +40,8 @@ const App = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<NewMain />} />
-            <Route path='event' element={<Event />} />
+            <Route path='bookcard' element={<BookCard />} />
+            <Route path='bookcard/searchbook' element={<SearchBook />} />
             <Route path='recommend' element={<Recommend />} />
             <Route path='detail/:paramValue' element={<Detail />} />
             <Route path='searchresult/:paramValue' element={<SearchResult />} />

@@ -6,7 +6,7 @@ import { RowBookList } from 'components/RowBookList'
 const NewMain = () => {
   const navigate = useNavigate()
   const handleEventClick = () => {
-    navigate('event')
+    navigate('bookcard')
   }
   return (
     <div className={styles.main}>

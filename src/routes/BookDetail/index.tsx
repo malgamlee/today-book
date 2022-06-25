@@ -123,7 +123,7 @@ const BookDetail = () => {
                 + 더보기
               </button>
             </div>
-            <BookList search={data.documents[0].authors} title={data.documents[0].title} next={false} />
+            <BookList search={data.documents[0].authors} title={data.documents[0].title} next={false} isLink />
           </div>
           <div className={styles.buttonWrap}>
             <ButtonWrap

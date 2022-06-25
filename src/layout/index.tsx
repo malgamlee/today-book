@@ -30,7 +30,7 @@ const Layout = () => {
                   <Link to='recommend'>추천도서</Link>
                 </li>
                 <li>
-                  <Link to='event'>이벤트</Link>
+                  <Link to='bookcard'>독서카드</Link>
                 </li>
                 <li>
                   <button type='button' className={styles.searchBtn} onClick={handleSearchClick}>

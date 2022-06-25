@@ -1,0 +1,30 @@
+@use '/src/styles/constants/colors';
+
+.searchBook {
+  height: 100%;
+  min-height: 100vh;
+
+  .searchInput {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: colors.$BACKGROUND;
+    border: 1px solid colors.$MAINBLUE;
+    border-radius: 5px;
+
+    input {
+      width: 93%;
+      margin-left: 5px;
+    }
+
+    .icon {
+      width: 25px;
+      color: colors.$GRAY6;
+    }
+
+    button {
+      height: 25px;
+    }
+  }
+}
