@@ -1,23 +1,10 @@
 import { escapeRegExp } from 'lodash'
+import { SearchStructure } from 'types/searchStructure'
 
 interface ObjType {
   [ch: string]: number
 }
 
-interface SearchStructure {
-  authors: string[]
-  contents: string
-  datetime: string
-  isbn: string
-  price: number
-  publisher: string
-  sale_price: number
-  status: string
-  thumbnail: string
-  title: string
-  translators: any[]
-  url: string
-}
 const ch2pattern = (ch: string) => {
   if (/[ㄱ-ㅎ]/.test(ch)) {
     const con2syl: ObjType = {

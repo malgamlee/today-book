@@ -2,13 +2,13 @@ import styles from './cart.module.scss'
 import store from 'store'
 import { TopNavBar, ItemList, NoDataPage } from 'components'
 import { useRecoilValue } from 'hooks/state'
-import { cartStoreState } from 'states/storeState'
+import { readingStoreState } from 'states/storeState'
 import { SearchStructure } from 'types/searchStructure'
 
 const Cart = () => {
-  const storeData = store.get('cartStore')
-  const cartStoreData = useRecoilValue(cartStoreState)
-  const countBooks = cartStoreData.filter((book: SearchStructure) => book.sale_price !== -1)
+  const storeData = store.get('readingStore')
+  const readingStoreData = useRecoilValue(readingStoreState)
+  const countBooks = readingStoreData.filter((book: SearchStructure) => book.sale_price !== -1)
 
   const price = storeData
     .filter((book: SearchStructure) => book.sale_price !== -1)
@@ -22,12 +22,12 @@ const Cart = () => {
   return (
     <div className={styles.cart}>
       <TopNavBar title='장바구니' />
-      {cartStoreData.length > 0 ? (
+      {readingStoreData.length > 0 ? (
         <div className={styles.cartContent}>
           <ul className={styles.bookList}>
-            {cartStoreData.map((item: SearchStructure, idx: number) => {
+            {readingStoreData.map((item: SearchStructure, idx: number) => {
               const key = `${idx}_${item.isbn}`
-              return <ItemList key={key} item={item} type='cartStore' />
+              return <ItemList key={key} item={item} type='readingStore' />
             })}
           </ul>
           {price !== 0 && (

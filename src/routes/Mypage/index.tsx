@@ -7,19 +7,19 @@ import { MouseEvent } from 'react'
 import store from 'store'
 
 import Toggle from './Toggle'
-import { cartStoreState, likeStoreState } from 'states/storeState'
+import { readingStoreState, likeStoreState } from 'states/storeState'
 import { useRecoil } from 'hooks/state'
 
 const User = () => {
   const userInfo = useRecoilValue(userInfoState)
   const [, setLikeStore] = useRecoil(likeStoreState)
-  const [, setCartStore] = useRecoil(cartStoreState)
+  const [, setreadingStore] = useRecoil(readingStoreState)
 
   const clickDeleteBtn = (e: MouseEvent<HTMLButtonElement>) => {
     const { value } = e.currentTarget.dataset
     if (value === undefined) return
     store.set(value, [])
-    if (value === 'cartStore') setCartStore([])
+    if (value === 'readingStore') setreadingStore([])
     else if (value === 'likeStore') setLikeStore([])
   }
 
@@ -39,7 +39,7 @@ const User = () => {
           <dl>
             <dt>장바구니</dt>
             <dd>
-              <button type='button' className={styles.allDelete} data-value='cartStore' onClick={clickDeleteBtn}>
+              <button type='button' className={styles.allDelete} data-value='readingStore' onClick={clickDeleteBtn}>
                 전체 삭제
               </button>
             </dd>

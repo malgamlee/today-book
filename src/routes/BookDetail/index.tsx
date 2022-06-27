@@ -7,7 +7,7 @@ import styles from './bookDetail.module.scss'
 
 import { getSearchListApi } from 'services/bookSearchApi'
 import { SearchStructure } from 'types/searchStructure'
-import { cartStoreState, likeStoreState } from 'states/storeState'
+import { readingStoreState, likeStoreState } from 'states/storeState'
 import { inputValue, searchValue } from 'states/inputSearchValue'
 
 import { NoDataPage, Loading, TopNavBar, BookList } from 'components'
@@ -19,7 +19,7 @@ const BookDetail = () => {
   const { paramValue } = useParams()
   const [isInCart, setIsInCart] = useState(false)
   const [isInLike, setIsInLike] = useState(false)
-  const [cartStore, setCartStore] = useRecoil(cartStoreState)
+  const [readingStore, setreadingStore] = useRecoil(readingStoreState)
   const [likeStore, setLikeStore] = useRecoil(likeStoreState)
   const [, setSearch] = useRecoil(searchValue)
   const [, setInput] = useRecoil(inputValue)
@@ -46,8 +46,8 @@ const BookDetail = () => {
 
   const addRemoveBook = (value: string) => {
     const storeData = store.get(value)
-    const checkIsIn = value === 'cartStore' ? isInCart : isInLike
-    const setCheckIsIn = value === 'cartStore' ? setIsInCart : setIsInLike
+    const checkIsIn = value === 'readingStore' ? isInCart : isInLike
+    const setCheckIsIn = value === 'readingStore' ? setIsInCart : setIsInLike
 
     if (!checkIsIn) {
       if (storeData.length > 0) {
@@ -64,7 +64,7 @@ const BookDetail = () => {
       )
       setCheckIsIn(false)
     }
-    if (value === 'cartStore') setCartStore(store.get(value))
+    if (value === 'readingStore') setreadingStore(store.get(value))
     else setLikeStore(store.get(value))
   }
 
@@ -87,10 +87,10 @@ const BookDetail = () => {
 
   useEffect(() => {
     if (data === undefined) return
-    const checkCart = cartStore.filter((item) => item.isbn === data.documents[0].isbn)
+    const checkCart = readingStore.filter((item) => item.isbn === data.documents[0].isbn)
     if (checkCart.length > 0) setIsInCart(true)
     else setIsInCart(false)
-  }, [cartStore, data])
+  }, [readingStore, data])
 
   return (
     <div className={styles.bookDetail}>

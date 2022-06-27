@@ -29,7 +29,7 @@ const ButtonWrap = ({ handleClickBtn, isInLike, isInCart, price, salePrice }: Pr
         <button
           type='button'
           onClick={handleClickBtn}
-          data-value='cartStore'
+          data-value='readingStore'
           className={cx(styles.smallBtn, { [styles.isInCart]: isInCart })}
         >
           <CartIcon className={styles.icon} />

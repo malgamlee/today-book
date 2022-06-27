@@ -1,7 +1,7 @@
 import styles from './itemList.module.scss'
 import { MouseEvent } from 'react'
 import { useRecoil } from 'hooks/state'
-import { cartStoreState, likeStoreState } from 'states/storeState'
+import { readingStoreState, likeStoreState } from 'states/storeState'
 import store from 'store'
 import { SearchStructure } from 'types/searchStructure'
 import { inputValue, searchValue } from 'states/inputSearchValue'
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const ItemList = ({ item, type }: Props) => {
-  const [cartStoreData, setCartStoreData] = useRecoil(cartStoreState)
+  const [readingStoreData, setreadingStoreData] = useRecoil(readingStoreState)
   const [likeStoreData, setLikeStoreData] = useRecoil(likeStoreState)
   const [, setInput] = useRecoil(inputValue)
   const [, setSearch] = useRecoil(searchValue)
@@ -24,12 +24,12 @@ const ItemList = ({ item, type }: Props) => {
     const { className } = e.currentTarget
 
     if (className.split('_')[1] === 'deleteBtn') {
-      if (type === 'cartStore') {
+      if (type === 'readingStore') {
         store.set(
           type,
-          cartStoreData.filter((data: SearchStructure) => data.isbn !== value)
+          readingStoreData.filter((data: SearchStructure) => data.isbn !== value)
         )
-        setCartStoreData(store.get(type))
+        setreadingStoreData(store.get(type))
       } else {
         store.set(
           'likeStore',

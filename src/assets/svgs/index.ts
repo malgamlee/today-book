@@ -17,3 +17,8 @@ export { ReactComponent as DarkModeIcon } from './darkModeIcon.svg'
 export { ReactComponent as NoImageIcon } from './noImageIcon.svg'
 export { ReactComponent as BookIcon } from './bookIcon.svg'
 export { ReactComponent as CloseIcon } from './closeIcon.svg'
+export { ReactComponent as EyeIcon } from './eyeIcon.svg'
+export { ReactComponent as PlusIcon } from './plusIcon.svg'
+export { ReactComponent as BookmarkIcon } from './bookmarkIcon.svg'
+
+export { ReactComponent as StarIcon } from './starIcon.svg'

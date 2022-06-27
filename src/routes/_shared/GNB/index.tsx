@@ -6,7 +6,7 @@ import store from 'store'
 
 const GNB = () => {
   const navigate = useNavigate()
-  const storeData = store.get('cartStore')
+  const storeData = store.get('readingStore')
 
   const onLogoClick = (e: MouseEvent<HTMLButtonElement>) => {
     const { value } = e.currentTarget.dataset
@@ -23,7 +23,7 @@ const GNB = () => {
       <div>
         <button type='button' className={styles.button} onClick={onLogoClick} data-value='cart'>
           <CartIcon className={styles.svg} />
-          <div className={styles.countCartStore}>{storeData.length}</div>
+          <div className={styles.countreadingStore}>{storeData.length}</div>
         </button>
         <button type='button' className={styles.button} onClick={onLogoClick} data-value='like'>
           <HeartIcon className={styles.svg} />

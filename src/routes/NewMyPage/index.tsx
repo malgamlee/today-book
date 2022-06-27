@@ -1,13 +1,31 @@
 import styles from './myPage.module.scss'
-import { useRecoilValue } from 'recoil'
-import { likeStoreState } from 'states/storeState'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import store from 'store'
 
 const NewMyPage = () => {
-  const likeStoreData = useRecoilValue(likeStoreState)
-  console.log(likeStoreData)
+  const navigate = useNavigate()
+  const ratingData = store.get('ratingStore')
+  const readingData = store.get('readingStore')
+  const likeData = store.get('likeStore')
 
-  return <div>폴딩</div>
+  // navigate(`searchresult/${input}`)
+
+  return (
+    <div className={styles.myPage}>
+      마이페이지
+      <div className={styles.buttonWrapper}>
+        <button type='button' className={styles.button}>
+          책 평가 {ratingData.length}
+        </button>
+        <button type='button' className={styles.button}>
+          읽고싶어요 {readingData.length}
+        </button>
+        <button type='button' className={styles.button}>
+          읽고있어요 {likeData.length}
+        </button>
+      </div>
+    </div>
+  )
 }
 
 export default NewMyPage

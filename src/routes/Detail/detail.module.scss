@@ -32,35 +32,62 @@
         }
       }
 
-      .buttonWrapper {
-        float: right;
+      .buttons {
+        display: flex;
+        justify-content: space-between;
 
-        .smallBtn {
-          width: 70px;
-          height: 70px;
-          margin-left: 10px;
-          border: 1px solid colors.$GRAYA;
-          border-radius: 5px;
-          transition: all 0.2s ease-in;
+        .starWrapper {
+          display: flex;
+          width: 60%;
+          padding: 15px 0;
+          margin-left: 50px;
 
-          .icon {
-            width: 25px;
-            height: 25px;
+          .star {
+            width: 40px;
+            height: 40px;
+            color: colors.$GRAYD;
+            cursor: pointer;
           }
 
-          p {
-            font-size: 12px;
+          .ratingStar {
+            color: colors.$YELLOW;
+          }
+
+          .isHovering {
+            color: colors.$YELLOW;
           }
         }
 
-        .isInCart,
-        .isInLike {
-          color: colors.$RED;
-        }
+        .buttonWrapper {
+          float: right;
 
-        .smallBtn:hover {
-          .icon {
+          .smallBtn {
+            width: 70px;
+            height: 70px;
+            margin-left: 10px;
+            border: 1px solid colors.$GRAYA;
+            border-radius: 5px;
+            transition: all 0.2s ease-in;
+
+            .icon {
+              width: 25px;
+              height: 25px;
+            }
+
+            p {
+              font-size: 12px;
+            }
+          }
+
+          .isInCart,
+          .isInLike {
             color: colors.$RED;
+          }
+
+          .smallBtn:hover {
+            .icon {
+              color: colors.$RED;
+            }
           }
         }
       }

@@ -26,8 +26,11 @@ const App = () => {
   if (!store.get('likeStore')) {
     store.set('likeStore', [])
   }
-  if (!store.get('cartStore')) {
-    store.set('cartStore', [])
+  if (!store.get('readingStore')) {
+    store.set('readingStore', [])
+  }
+  if (!store.get('ratingStore')) {
+    store.set('ratingStore', [])
   }
 
   useEffect(() => {

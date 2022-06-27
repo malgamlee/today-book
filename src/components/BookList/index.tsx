@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getSearchListApi } from 'services/bookSearchApi'
 import noImage from 'assets/images/noImage.png'
+import { SearchStructure } from 'types/searchStructure'
 
 import styles from './bookList.module.scss'
 
@@ -14,24 +15,9 @@ interface Props {
   isLink: boolean
 }
 
-interface Items {
-  authors: string[]
-  contents: string
-  datetime: Date
-  isbn: string
-  price: number
-  publisher: string
-  sale_price: number
-  status: string
-  thumbnail: string
-  title: string
-  translators: any[]
-  url: string
-}
-
 const BookList = ({ search, title, next, isLink }: Props) => {
   const [pageNum, setPageNum] = useState(1)
-  const [itemList, setItemList] = useState<Array<Items>>([])
+  const [itemList, setItemList] = useState<Array<SearchStructure>>([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [moreData, setMoreData] = useState(false)
   const [dataExist, setDataExist] = useState(true)
@@ -48,8 +34,10 @@ const BookList = ({ search, title, next, isLink }: Props) => {
   }, [search, input])
 
   useEffect(() => {
+    if (search === '') return
+    if (pageNum > 1 && search !== input) return
+    if (moreData) return
     getSearchListApi(search, pageNum).then((res) => {
-      if (pageNum > 1 && search !== input) return
       if (res.data.meta.total_count === 0) {
         setDataExist(false)
         return
@@ -57,7 +45,7 @@ const BookList = ({ search, title, next, isLink }: Props) => {
       setItemList((prev) => uniqBy([...prev, ...res.data.documents], 'isbn'))
       setMoreData(res.data.meta.is_end)
     })
-  }, [input, pageNum, search])
+  }, [input, moreData, pageNum, search])
 
   useEffect(() => {
     let observer: IntersectionObserver
@@ -70,7 +58,9 @@ const BookList = ({ search, title, next, isLink }: Props) => {
       setIsLoaded(false)
     }
     const handleObserve = async ([entry]: IntersectionObserverEntry[]) => {
+      if (search === '') return
       if (!next || pageNum === 0 || moreData) return
+      if (moreData) return
 
       if (entry.isIntersecting) {
         observer.unobserve(entry.target)
@@ -85,13 +75,13 @@ const BookList = ({ search, title, next, isLink }: Props) => {
       observer.observe(target.current)
     }
     return () => observer && observer.disconnect()
-  }, [moreData, next, pageNum, target])
+  }, [moreData, next, pageNum, search, target])
 
   const bookItems =
     itemList.length > 0 &&
     itemList
-      .filter((item: Items) => item.title !== title)
-      .map((item: Items) => (
+      .filter((item: SearchStructure) => item.title !== title)
+      .map((item: SearchStructure) => (
         <li key={item.isbn} className={styles.item}>
           {isLink ? (
             <Link to={`../detail/${item.publisher} ${item.title}`}>
@@ -103,7 +93,14 @@ const BookList = ({ search, title, next, isLink }: Props) => {
               <div className={styles.bookTitle}>{item.title}</div>
             </Link>
           ) : (
-            <div>dsf</div>
+            <Link to={`../detail/${item.publisher} ${item.title}`}>
+              {item.thumbnail === '' ? (
+                <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
+              ) : (
+                <img className={styles.bookImg} src={item.thumbnail} alt={`${item.title}_img`} />
+              )}
+              <div className={styles.bookTitle}>{item.title}</div>
+            </Link>
           )}
         </li>
       ))
