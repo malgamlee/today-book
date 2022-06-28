@@ -1,88 +1,56 @@
 @use '/src/styles/constants/colors';
 
 .myPage {
-  width: 100%;
-  height: 800px;
-  overflow: scroll;
-  background-color: colors.$GRAYE;
+  max-width: 800px;
+  min-height: calc(100vh - 300px);
+  margin: 0 auto;
 
-  .myPageContent {
-    width: 100%;
-    height: 570px;
-    margin-top: 150px;
+  .buttonWrapper {
+    display: flex;
 
-    .wrapper {
-      position: relative;
-      height: 80px;
+    .button {
+      width: 200px;
+      height: 200px;
+      padding: 15px 0;
+      margin-right: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 15px;
 
-      .userPhoto {
-        position: absolute;
-        top: 30px;
-        right: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        width: 100px;
-        height: 100px;
-        padding-bottom: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        background-color: white;
-        border: 4px solid colors.$GRAYE;
-        border-radius: 70px;
-      }
-    }
-
-    .myPageDatail {
-      height: 100%;
-      padding: 60px 12px;
-      text-align: center;
-      background-color: white;
-      border-radius: 25px 25px 0 0;
-
-      .userName {
-        display: flex;
-        justify-content: center;
-        height: 40px;
-        line-height: 40px;
-      }
-
-      dl {
+      .top {
         display: flex;
         justify-content: space-between;
-        padding: 10px 0;
-        margin: 5px 10px 0;
-        line-height: 30px;
-        border-bottom: 1px solid colors.$GRAYD;
-
-        dd {
-          .allDelete {
-            width: 100px;
-            height: 30px;
-            background-color: colors.$RED;
-            border-radius: 5px;
-            box-shadow: rgba(0, 0, 0, 16%) 0 1px 4px;
-          }
-        }
+        padding: 0 20px 0 15px;
       }
-    }
-  }
 
-  :root[color-theme='dark'] & {
-    background-color: colors.$GRAYA;
-
-    .myPageContent {
-      .wrapper {
-        .userPhoto {
-          border: 4px solid colors.$GRAYA;
-        }
+      .icon {
+        float: right;
+        width: 100px;
+        margin: 50px 15px 0 0;
       }
     }
 
-    .myPageDatail {
+    .rating {
+      color: colors.$BLACK;
+      background-color: #fcd900;
+    }
+
+    .like {
       color: colors.$WHITE;
-      background-color: colors.$GRAY2;
+      background-color: #e8630a;
+    }
+
+    .reading {
+      color: colors.$WHITE;
+      background-color: #035397;
     }
   }
+}
+
+.bookRating,
+.bookReading,
+.bookWant {
+  max-width: 800px;
+  min-height: calc(100vh - 300px);
+  margin: 0 auto;
 }

@@ -41,11 +41,18 @@
 
         .buttonWrapper {
           display: flex;
-          justify-content: right;
-          width: 100px;
+          justify-content: space-between;
+          width: 80px;
+          margin-left: 20px;
 
           .myPage {
             width: 30px;
+            color: black;
+
+            svg {
+              width: 30px;
+              margin-top: 5px;
+            }
           }
         }
 

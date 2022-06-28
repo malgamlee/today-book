@@ -32,7 +32,7 @@ const SearchBook = () => {
         <input type='text' placeholder='검색어를 입력하세요.' onChange={handleChange} value={input} />
         <SearchIcon className={styles.icon} />
       </form>
-      <BookList search={search} title='' next isLink={false} />
+      <BookList search={search} title='' next isLink={false} storeName='' />
     </div>
   )
 }

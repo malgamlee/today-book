@@ -1,0 +1,33 @@
+@use '/src/styles/constants/colors';
+
+.bookList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .item {
+    margin-right: 10px;
+    margin-bottom: 50px;
+
+    .bookImg {
+      width: 150px;
+      border: 1px solid colors.$GRAYE;
+      border-radius: 5px;
+    }
+
+    .bookTitle {
+      display: block;
+      width: 150px;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 25px;
+      color: colors.$BLACK;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      :root[color-theme='dark'] & {
+        color: colors.$WHITE;
+      }
+    }
+  }
+}

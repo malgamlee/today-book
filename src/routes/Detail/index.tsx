@@ -195,7 +195,13 @@ const Detail = () => {
             저자의 다른 도서
             <Link to={`../searchresult/${data.documents[0].authors}`}>+ 더보기</Link>
           </div>
-          <BookList search={data.documents[0].authors} title={data.documents[0].title} next={false} isLink />
+          <BookList
+            search={data.documents[0].authors}
+            title={data.documents[0].title}
+            next={false}
+            isLink
+            storeName=''
+          />
         </div>
       )}
     </div>

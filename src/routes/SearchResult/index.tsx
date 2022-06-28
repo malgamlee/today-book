@@ -10,7 +10,7 @@ const SearchResult = () => {
   return (
     <div className={styles.searchResult}>
       <div className={styles.searchParam}>&apos;{paramValue}&apos; 검색결과</div>
-      <BookList search={paramValue} title='' next isLink />
+      <BookList search={paramValue} title='' next isLink storeName='' />
     </div>
   )
 }

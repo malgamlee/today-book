@@ -41,7 +41,7 @@ const Layout = () => {
               </ul>
             </div>
             <div className={styles.buttonWrapper}>
-              <Link to='myPage' className={styles.myPage}>
+              <Link to='mypage' className={styles.myPage}>
                 <PersonIcon />
               </Link>
               <button type='button' className={styles.myPage}>

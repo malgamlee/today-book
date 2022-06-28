@@ -1,21 +1,21 @@
 import { NoDataPage, Loading } from 'components'
 import { uniqBy } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { getSearchListApi } from 'services/bookSearchApi'
-import noImage from 'assets/images/noImage.png'
 import { SearchStructure } from 'types/searchStructure'
 
 import styles from './bookList.module.scss'
+import BookItem from './BookItem'
 
 interface Props {
   search: string
   title: string
   next: boolean
   isLink: boolean
+  storeName: string
 }
 
-const BookList = ({ search, title, next, isLink }: Props) => {
+const BookList = ({ search, title, next, isLink, storeName }: Props) => {
   const [pageNum, setPageNum] = useState(1)
   const [itemList, setItemList] = useState<Array<SearchStructure>>([])
   const [isLoaded, setIsLoaded] = useState(false)
@@ -77,39 +77,11 @@ const BookList = ({ search, title, next, isLink }: Props) => {
     return () => observer && observer.disconnect()
   }, [moreData, next, pageNum, search, target])
 
-  const bookItems =
-    itemList.length > 0 &&
-    itemList
-      .filter((item: SearchStructure) => item.title !== title)
-      .map((item: SearchStructure) => (
-        <li key={item.isbn} className={styles.item}>
-          {isLink ? (
-            <Link to={`../detail/${item.publisher} ${item.title}`}>
-              {item.thumbnail === '' ? (
-                <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
-              ) : (
-                <img className={styles.bookImg} src={item.thumbnail} alt={`${item.title}_img`} />
-              )}
-              <div className={styles.bookTitle}>{item.title}</div>
-            </Link>
-          ) : (
-            <Link to={`../detail/${item.publisher} ${item.title}`}>
-              {item.thumbnail === '' ? (
-                <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
-              ) : (
-                <img className={styles.bookImg} src={item.thumbnail} alt={`${item.title}_img`} />
-              )}
-              <div className={styles.bookTitle}>{item.title}</div>
-            </Link>
-          )}
-        </li>
-      ))
-
   return (
     <div>
       {dataExist ? (
         <div>
-          <ul className={styles.bookList}>{bookItems}</ul>
+          <BookItem itemList={itemList} storeName={storeName} title={title} isLink={isLink} />
           <div ref={target}>
             {search && !moreData && isLoaded && (
               <div className={styles.loadingIcon}>

@@ -6,6 +6,7 @@ export { ReactComponent as PersonIcon } from './personIcon.svg'
 export { ReactComponent as LeftArrowIcon } from './leftArrowIcon.svg'
 export { ReactComponent as RightArrowIcon } from './rightArrowIcon.svg'
 export { ReactComponent as LeftIcon } from './leftIcon.svg'
+export { ReactComponent as RightIcon } from './rightIcon.svg'
 
 export { ReactComponent as HeartIcon } from './heartIcon.svg'
 export { ReactComponent as RemoveIcon } from './removeInputIcon.svg'
@@ -22,3 +23,5 @@ export { ReactComponent as PlusIcon } from './plusIcon.svg'
 export { ReactComponent as BookmarkIcon } from './bookmarkIcon.svg'
 
 export { ReactComponent as StarIcon } from './starIcon.svg'
+export { ReactComponent as ReadingIcon } from './readingIcon.svg'
+export { ReactComponent as WantToReadIcon } from './wantToReadIcon.svg'

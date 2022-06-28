@@ -1,75 +1,51 @@
 import styles from './myPage.module.scss'
-import { TopNavBar } from 'components'
-import { PersonIcon } from 'assets/svgs'
-import { userInfoState } from 'states/userInfo'
-import { useRecoilValue } from 'recoil'
-import { MouseEvent } from 'react'
+import { Link } from 'react-router-dom'
 import store from 'store'
+import Breadcrumb from 'components/Breadcrumb'
+import cx from 'classnames'
+import { ReadingIcon, StarIcon, WantToReadIcon } from 'assets/svgs'
 
-import Toggle from './Toggle'
-import { readingStoreState, likeStoreState } from 'states/storeState'
-import { useRecoil } from 'hooks/state'
+const MyPage = () => {
+  const ratingData = store.get('ratingStore')
+  const readingData = store.get('readingStore')
+  const likeData = store.get('likeStore')
 
-const User = () => {
-  const userInfo = useRecoilValue(userInfoState)
-  const [, setLikeStore] = useRecoil(likeStoreState)
-  const [, setreadingStore] = useRecoil(readingStoreState)
-
-  const clickDeleteBtn = (e: MouseEvent<HTMLButtonElement>) => {
-    const { value } = e.currentTarget.dataset
-    if (value === undefined) return
-    store.set(value, [])
-    if (value === 'readingStore') setreadingStore([])
-    else if (value === 'likeStore') setLikeStore([])
-  }
+  const pageList = [['마이페이지', '../mypage']]
 
   return (
     <div className={styles.myPage}>
-      <TopNavBar title='마이페이지' />
-      <div className={styles.myPageContent}>
-        <div className={styles.wrapper}>
-          <div className={styles.userPhoto}>
-            <PersonIcon />
+      <Breadcrumb pageList={pageList} />
+      <div className={styles.buttonWrapper}>
+        <Link to='bookrating'>
+          <div className={cx(styles.button, styles.rating)}>
+            <div className={styles.top}>
+              <p>평가</p>
+              <p>{ratingData.length}</p>
+            </div>
+            <StarIcon className={styles.icon} />
           </div>
-        </div>
-        <div className={styles.myPageDatail}>
-          <div className={styles.userName}>
-            {userInfo.userName} ({userInfo.userId})
+        </Link>
+        <Link to='bookwant'>
+          <div className={cx(styles.button, styles.like)}>
+            <div className={styles.top}>
+              <p>읽고싶어요</p>
+              <p>{likeData.length}</p>
+            </div>
+            <WantToReadIcon className={styles.icon} />
           </div>
-          <dl>
-            <dt>장바구니</dt>
-            <dd>
-              <button type='button' className={styles.allDelete} data-value='readingStore' onClick={clickDeleteBtn}>
-                전체 삭제
-              </button>
-            </dd>
-          </dl>
-          <dl>
-            <dt>좋아요</dt>
-            <dd>
-              <button type='button' className={styles.allDelete} data-value='likeStore' onClick={clickDeleteBtn}>
-                전체 삭제
-              </button>
-            </dd>
-          </dl>
-          <dl>
-            <dt>검색기록</dt>
-            <dd>
-              <button type='button' className={styles.allDelete} data-value='searchStore' onClick={clickDeleteBtn}>
-                전체 삭제
-              </button>
-            </dd>
-          </dl>
-          <dl>
-            <dt>다크모드</dt>
-            <dd>
-              <Toggle />
-            </dd>
-          </dl>
-        </div>
+        </Link>
+        <Link to='bookreading'>
+          <div className={cx(styles.button, styles.reading)}>
+            <div className={styles.top}>
+              <p>읽고있어요</p>
+              <p>{readingData.length}</p>
+            </div>
+            <ReadingIcon className={styles.icon} />
+          </div>
+        </Link>
       </div>
     </div>
   )
 }
 
-export default User
+export default MyPage

@@ -1,22 +1,20 @@
 import { Routes, Route } from 'react-router-dom'
 import styles from './routes.module.scss'
-import Main from './Main'
 import Layout from 'layout'
-import BookDetail from './BookDetail'
-import Cart from './Cart'
-import User from './Mypage'
-import WishList from './WishList'
 import SearchResult from './SearchResult'
 import store from 'store'
 import { themeState } from 'states/system'
 import { useRecoil } from 'hooks/state'
 import { useEffect } from 'react'
-import NewMain from './NewMain'
+import NewMain from './Main'
 import BookCard from './BookCard'
 import Recommend from './Recommend'
 import Detail from './Detail'
-import NewMyPage from './NewMyPage'
+import MyPage from './MyPage'
 import SearchBook from './BookCard/SearchBook'
+import BookRating from './MyPage/BookRating'
+import BookWant from './MyPage/BookWant'
+import BookReading from './MyPage/BookReading'
 
 const App = () => {
   const [theme] = useRecoil(themeState)
@@ -48,14 +46,10 @@ const App = () => {
             <Route path='recommend' element={<Recommend />} />
             <Route path='detail/:paramValue' element={<Detail />} />
             <Route path='searchresult/:paramValue' element={<SearchResult />} />
-            <Route path='myPage' element={<NewMyPage />} />
-
-            {/* <Route path='search/:paramValue' element={<Search />} /> */}
-            {/* <Route path='cart' element={<Cart />} />
-            <Route path='user' element={<User />} />
-            <Route path='wishList' element={<WishList />} />
-            <Route path='bookdetail/:paramValue' element={<BookDetail />} />
-            <Route path='searchresult/:paramValue' element={<SearchResult />} /> */}
+            <Route path='mypage' element={<MyPage />} />
+            <Route path='mypage/bookrating' element={<BookRating />} />
+            <Route path='mypage/bookwant' element={<BookWant />} />
+            <Route path='mypage/bookreading' element={<BookReading />} />
           </Route>
           <Route path='*' element={<div>Not Found</div>} />
         </Routes>
