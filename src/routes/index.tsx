@@ -11,10 +11,12 @@ import BookCard from './BookCard'
 import Recommend from './Recommend'
 import Detail from './Detail'
 import MyPage from './MyPage'
-import SearchBook from './BookCard/SearchBook'
 import BookRating from './MyPage/BookRating'
 import BookWant from './MyPage/BookWant'
 import BookReading from './MyPage/BookReading'
+import NotFound from './NotFound'
+import SelectBook from './BookCard/SelectBook'
+import MakeCard from './BookCard/MakeCard'
 
 const App = () => {
   const [theme] = useRecoil(themeState)
@@ -42,7 +44,8 @@ const App = () => {
           <Route element={<Layout />}>
             <Route index element={<NewMain />} />
             <Route path='bookcard' element={<BookCard />} />
-            <Route path='bookcard/searchbook' element={<SearchBook />} />
+            <Route path='bookcard/selectbook' element={<SelectBook />} />
+            <Route path='bookcard/makecard/:paramValue' element={<MakeCard />} />
             <Route path='recommend' element={<Recommend />} />
             <Route path='detail/:paramValue' element={<Detail />} />
             <Route path='searchresult/:paramValue' element={<SearchResult />} />
@@ -50,8 +53,8 @@ const App = () => {
             <Route path='mypage/bookrating' element={<BookRating />} />
             <Route path='mypage/bookwant' element={<BookWant />} />
             <Route path='mypage/bookreading' element={<BookReading />} />
+            <Route path='*' element={<NotFound />} />
           </Route>
-          <Route path='*' element={<div>Not Found</div>} />
         </Routes>
       </div>
     </div>

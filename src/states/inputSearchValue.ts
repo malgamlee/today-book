@@ -14,3 +14,8 @@ export const searchListOpen = atom<string>({
   key: 'searchListOpen',
   default: 'false',
 })
+
+export const bookCardValue = atom<string>({
+  key: 'bookCardValue',
+  default: '',
+})

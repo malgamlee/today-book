@@ -1,0 +1,63 @@
+@use '/src/styles/constants/colors';
+
+.modalframe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background-color: rgba(colors.$BLACK, 30%);
+
+  .modalBox {
+    background-color: white;
+    border-radius: 15px;
+
+    .content {
+      display: flex;
+      width: 500px;
+      height: 250px;
+
+      .bookImg {
+        width: 176px;
+        height: 250px;
+        border-right: 1px solid colors.$GRAYE;
+        border-radius: 15px 0 0 15px;
+      }
+    }
+
+    .modalcontents {
+      width: 60%;
+      margin: 60px 30px 30px 20px;
+
+      p {
+        height: 85%;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .buttonWapper {
+        float: right;
+        height: 15%;
+
+        .button {
+          width: 80px;
+          font-size: 18px;
+          text-align: right;
+        }
+
+        .next {
+          color: colors.$MAINBLUE;
+        }
+      }
+    }
+  }
+}
+
+.showModal {
+  visibility: visible;
+}

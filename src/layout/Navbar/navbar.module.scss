@@ -1,0 +1,90 @@
+@use '/src/styles/constants/colors';
+
+nav {
+  position: relative;
+  height: 80px;
+  padding: 20px 0;
+  background-color: colors.$BACKGROUND;
+
+  .navbar {
+    max-width: 900px;
+    margin: 0 auto;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+
+      .mainLogo {
+        display: flex;
+        width: 100px;
+        font-weight: 500;
+        line-height: 40px;
+        color: colors.$BLACK;
+
+        .bookIcon {
+          width: 30px;
+          height: 30px;
+          padding: 5px;
+          margin: 5px 0 0 5px;
+          color: colors.$WHITE;
+          background-color: colors.$MAINBLUE;
+          border-radius: 5px;
+        }
+      }
+
+      .buttonWrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 80px;
+        margin-left: 20px;
+
+        .myPage {
+          width: 30px;
+          color: colors.$BLACK;
+
+          svg {
+            width: 30px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        margin-top: 10px;
+
+        li {
+          a {
+            line-height: 20px;
+            color: colors.$BLACK;
+          }
+
+          .searchBtn {
+            display: flex;
+            width: 80px;
+            font-size: 16px;
+
+            .searchIcon {
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .searchList {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    visibility: hidden;
+  }
+
+  .isOpen {
+    visibility: visible;
+  }
+}

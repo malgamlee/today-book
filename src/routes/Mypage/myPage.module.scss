@@ -1,10 +1,6 @@
 @use '/src/styles/constants/colors';
 
 .myPage {
-  max-width: 800px;
-  min-height: calc(100vh - 300px);
-  margin: 0 auto;
-
   .buttonWrapper {
     display: flex;
 
@@ -45,12 +41,4 @@
       background-color: #035397;
     }
   }
-}
-
-.bookRating,
-.bookReading,
-.bookWant {
-  max-width: 800px;
-  min-height: calc(100vh - 300px);
-  margin: 0 auto;
 }

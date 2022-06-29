@@ -26,7 +26,7 @@
       margin: 0 auto;
 
       .image {
-        width: 150px;
+        width: 130px;
         border: 1px solid colors.$GRAYE;
         box-shadow: rgba(0, 0, 0, 19%) 0 10px 20px, rgba(0, 0, 0, 23%) 0 6px 6px;
       }
@@ -48,7 +48,7 @@
 
           .title {
             display: block;
-            width: 110px;
+            width: 100px;
             overflow: hidden;
             font-size: 15px;
             text-overflow: ellipsis;
@@ -56,9 +56,14 @@
           }
 
           .authors {
+            display: block;
+            width: 100px;
+            overflow: hidden;
             font-size: 12px;
             font-weight: 200;
             line-height: 20px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
         }
       }

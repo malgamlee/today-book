@@ -4,7 +4,7 @@ import styles from './bookCard.module.scss'
 const BookCard = () => {
   const navigate = useNavigate()
   const handleEventClick = () => {
-    navigate('searchbook')
+    navigate('selectbook')
   }
   return (
     <div className={styles.event}>

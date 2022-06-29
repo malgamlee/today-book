@@ -6,24 +6,28 @@
   width: 100%;
 
   .item {
-    margin-right: 10px;
+    width: 150px;
+    // margin-right: 10px;
     margin-bottom: 50px;
 
     .bookImg {
-      width: 150px;
+      width: 130px;
       border: 1px solid colors.$GRAYE;
       border-radius: 5px;
     }
 
     .bookTitle {
       display: block;
-      width: 150px;
+      width: 130px;
       overflow: hidden;
       font-size: 14px;
       line-height: 25px;
       color: colors.$BLACK;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      text-align: left;
+
+      .rating {
+        color: colors.$ORANGE;
+      }
 
       :root[color-theme='dark'] & {
         color: colors.$WHITE;

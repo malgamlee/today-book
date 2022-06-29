@@ -2,13 +2,13 @@
 
 .searchBook {
   height: 100%;
-  min-height: 100vh;
 
   .searchInput {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 10px 15px;
+    margin-bottom: 50px;
     background-color: colors.$BACKGROUND;
     border: 1px solid colors.$MAINBLUE;
     border-radius: 5px;

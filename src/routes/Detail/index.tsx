@@ -117,6 +117,7 @@ const Detail = () => {
 
     if (star > 0) {
       ratingObj.star = Number(num)
+      ratingObj.report = ''
       ratingData = ratingData.filter((item: RatingStructure) => item.isbn !== data.documents[0].isbn)
       store.set('ratingStore', [...ratingData, ratingObj])
     } else {

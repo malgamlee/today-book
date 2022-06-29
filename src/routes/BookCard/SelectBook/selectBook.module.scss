@@ -1,0 +1,24 @@
+@use '/src/styles/constants/colors';
+
+.selectBook {
+  width: 100%;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 30px;
+    font-weight: 500;
+    line-height: 30px;
+
+    .buttonWrapper {
+      .btn {
+        width: 100px;
+        margin-left: 10px;
+        line-height: 30px;
+        color: colors.$WHITE;
+        background-color: colors.$MAINBLUE;
+        border-radius: 5px;
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ export interface SearchStructure {
   status: string
   thumbnail: string
   title: string
-  translators: any[]
+  translators: string[]
   url: string
 }
 
@@ -24,7 +24,8 @@ export interface RatingStructure {
   status: string
   thumbnail: string
   title: string
-  translators: any[]
+  translators: string[]
   url: string
   star: number
+  report: string
 }

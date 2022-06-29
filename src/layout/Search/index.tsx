@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, MouseEvent, useMemo, Dispatch } from 'react'
-import { CloseIcon, LeftArrowIcon, RemoveIcon, SearchIcon } from 'assets/svgs'
+import { CloseIcon, LeftArrowIcon, SearchIcon } from 'assets/svgs'
 import styles from './search.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { debounce } from 'lodash'

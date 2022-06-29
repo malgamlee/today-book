@@ -1,8 +1,6 @@
 @use '/src/styles/constants/colors';
 
 .searchResult {
-  max-width: 800px;
-  margin: 0 auto;
   overflow: scroll;
 
   .searchParam {
