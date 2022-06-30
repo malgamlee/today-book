@@ -37,10 +37,11 @@ const SelectBook = () => {
           </button>
         </div>
       </div>
-      <ModalFrame setOnModal={setOnModal} onModal={onModal} multiple>
+      <div>제작중입니다</div>
+      {/* <ModalFrame setOnModal={setOnModal} onModal={onModal} multiple>
         선택한 작품으로 독서 카드를 제작하시겠습니까?
       </ModalFrame>
-      <BookList search='' title='' next={false} isLink={false} storeName='ratingStore' />
+      <BookList search='' title='' next={false} isLink={false} storeName='ratingStore' /> */}
     </div>
   )
 }
