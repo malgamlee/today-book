@@ -1,0 +1,69 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.main {
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+    padding: 50px;
+    background-color: colors.$BANNER;
+
+    .left {
+      .title {
+        display: flex;
+        // font-size: 35px;
+        font-size: 30px;
+        line-height: 40px;
+
+        p {
+          font-weight: 700;
+        }
+      }
+
+      .under {
+        font-size: 11px;
+        font-weight: 300;
+        letter-spacing: 5px;
+      }
+
+      .goBtn {
+        float: bottom;
+        width: 150px;
+        height: 40px;
+        margin-top: 30px;
+        font-size: 16px;
+        color: colors.$WHITE;
+        background-color: #034aa6;
+        border-radius: 10px;
+      }
+    }
+
+    .right {
+      display: none;
+
+      .icon {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  .section {
+    margin: 50px 15px 0;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+@include responsive.after(MD) {
+  // background-color: black;
+
+  .main {
+    .section {
+      margin-top: 50px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}

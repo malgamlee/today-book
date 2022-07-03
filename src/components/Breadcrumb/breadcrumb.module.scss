@@ -1,0 +1,33 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.breadcrumb {
+  display: flex;
+  padding-bottom: 30px;
+  margin: 50px 15px;
+  font-size: 18px;
+  border-bottom: 1px solid colors.$GRAYD;
+
+  li {
+    .page {
+      display: flex;
+      font-size: 18px;
+      color: colors.$GRAY6;
+
+      p {
+        margin-right: 10px;
+      }
+    }
+
+    .now {
+      font-weight: 500;
+      color: colors.$MAINBLUE;
+    }
+  }
+}
+
+@include responsive.after(MD) {
+  .breadcrumb {
+    margin: 50px 0;
+  }
+}

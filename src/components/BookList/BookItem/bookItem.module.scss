@@ -1,0 +1,76 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.bookList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .item {
+    width: 140px;
+    // margin-right: 10px;
+    margin-bottom: 40px;
+
+    .bookImg {
+      width: 130px;
+      border: 1px solid colors.$GRAYE;
+      border-radius: 5px;
+    }
+
+    .bookTitle {
+      display: block;
+      width: 130px;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 25px;
+      color: colors.$BLACK;
+      text-align: left;
+
+      .rating {
+        color: colors.$ORANGE;
+      }
+
+      :root[color-theme='dark'] & {
+        color: colors.$WHITE;
+      }
+    }
+  }
+}
+
+@include responsive.after(MD) {
+  .bookList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .item {
+      width: 150px;
+      // margin-right: 10px;
+      margin-bottom: 50px;
+
+      .bookImg {
+        width: 130px;
+        border: 1px solid colors.$GRAYE;
+        border-radius: 5px;
+      }
+
+      .bookTitle {
+        display: block;
+        width: 130px;
+        overflow: hidden;
+        font-size: 14px;
+        line-height: 25px;
+        color: colors.$BLACK;
+        text-align: left;
+
+        .rating {
+          color: colors.$ORANGE;
+        }
+
+        :root[color-theme='dark'] & {
+          color: colors.$WHITE;
+        }
+      }
+    }
+  }
+}

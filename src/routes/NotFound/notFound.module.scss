@@ -1,0 +1,25 @@
+@use '/src/styles/constants/colors';
+
+.notfound {
+  text-align: center;
+
+  .notfoundLogo {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    color: colors.$RED;
+    border: 5px solid colors.$RED;
+    border-radius: 100px;
+
+    .number {
+      margin: 25px 0 0;
+      font-size: 50px;
+      font-weight: 500;
+    }
+  }
+
+  .explain {
+    margin-top: 20px;
+    line-height: 30px;
+  }
+}

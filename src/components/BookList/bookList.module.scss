@@ -1,0 +1,17 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.bookList {
+  margin: 0 15px;
+
+  .loadingIcon {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@include responsive.after(MD) {
+  .bookList {
+    margin: 0;
+  }
+}

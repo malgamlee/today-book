@@ -1,0 +1,16 @@
+@use '/src/styles/constants/colors';
+
+.noDataPage {
+  width: 100%;
+
+  .nobookList {
+    margin-top: 60px;
+    color: colors.$GRAYA;
+    text-align: center;
+
+    .emptyImage {
+      width: 150px;
+      margin: 50px 0 20px;
+    }
+  }
+}

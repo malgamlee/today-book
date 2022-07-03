@@ -1,0 +1,54 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.myPage {
+  margin: 0 15px;
+
+  .buttonWrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .button {
+      width: 200px;
+      height: 200px;
+      padding: 15px 0;
+      margin: 10px 20px 0 0;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 15px;
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px 0 15px;
+      }
+
+      .icon {
+        float: right;
+        width: 100px;
+        margin: 50px 15px 0 0;
+      }
+    }
+
+    .rating {
+      color: colors.$BLACK;
+      background-color: #fcd900;
+    }
+
+    .like {
+      color: colors.$WHITE;
+      background-color: #e8630a;
+    }
+
+    .reading {
+      color: colors.$WHITE;
+      background-color: #035397;
+    }
+  }
+}
+
+@include responsive.after(MD) {
+  .myPage {
+    margin: 0;
+  }
+}

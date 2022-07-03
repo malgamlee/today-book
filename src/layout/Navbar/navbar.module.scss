@@ -1,0 +1,218 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+nav {
+  position: relative;
+  height: 80px;
+  padding: 20px 0;
+  margin: 0 auto;
+  background-color: colors.$BACKGROUND;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    .mainLogo {
+      display: flex;
+      width: 100px;
+      font-weight: 500;
+      line-height: 40px;
+      color: colors.$BLACK;
+
+      .bookIcon {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        margin: 5px 0 0 5px;
+        color: colors.$WHITE;
+        background-color: colors.$MAINBLUE;
+        border-radius: 5px;
+      }
+    }
+
+    .center {
+      display: none;
+
+      ul {
+        display: flex;
+        width: 100%;
+      }
+    }
+
+    .buttonWrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 20px;
+
+      .myPage {
+        display: none;
+        width: 30px;
+        color: colors.$BLACK;
+
+        svg {
+          width: 30px;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .menuBtn {
+      .menuIcon {
+        width: 30px;
+        margin-top: 5px;
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 40%;
+      margin-top: 10px;
+
+      li {
+        a {
+          line-height: 20px;
+          color: colors.$BLACK;
+        }
+
+        .searchBtn {
+          display: flex;
+          font-size: 16px;
+
+          .searchIcon {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileMenu {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+    background-color: colors.$BACKGROUND;
+    box-shadow: rgba(0, 0, 0, 24%) 0 8px 10px -8px;
+
+    .menuList {
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 20px;
+
+      .menuItem {
+        height: 60px;
+        padding: 0 15px;
+        border-top: 1px solid colors.$GRAYD;
+
+        .menu {
+          display: flex;
+          width: 100%;
+          font-size: 16px;
+          line-height: 60px;
+
+          .personIcon {
+            width: 30px;
+            height: 30px;
+            margin-top: 15px;
+          }
+        }
+
+        .searchBtn {
+          display: flex;
+          width: 100%;
+          font-size: 16px;
+          line-height: 60px;
+
+          .searchIcon {
+            width: 30px;
+            height: 30px;
+            margin-top: 15px;
+          }
+        }
+      }
+
+      :hover {
+        background-color: colors.$GRAYD;
+      }
+    }
+  }
+
+  .menuOpen {
+    display: block;
+  }
+
+  .searchList {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    visibility: hidden;
+  }
+
+  .searchOpen {
+    visibility: visible;
+  }
+}
+@include responsive.after(MD) {
+  nav {
+    .navbar {
+      padding: 0;
+
+      .center {
+        display: block;
+        width: 40%;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      .buttonWrapper {
+        .myPage {
+          display: block;
+          margin-right: 5px;
+        }
+
+        .menuBtn {
+          display: none;
+        }
+      }
+    }
+
+    .mobileMenu {
+      display: none;
+      width: 100%;
+      margin: 0 auto;
+      background-color: colors.$RED;
+
+      .menuList {
+        max-width: 900px;
+        margin: 0 auto;
+        margin-top: 20px;
+
+        .menuItem {
+          width: 40%;
+
+          a {
+            color: colors.$BLACK;
+          }
+
+          .searchBtn {
+            display: flex;
+            width: 100%;
+
+            .searchIcon {
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
