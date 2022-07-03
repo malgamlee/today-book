@@ -2,7 +2,7 @@ import styles from './layout.module.scss'
 import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 import Navbar from './Navbar'
-import { BookIcon, GithubIcon } from 'assets/svgs'
+import { GithubIcon } from 'assets/svgs'
 
 const Layout = () => {
   const [searchOpen, setSearchOpen] = useState<boolean>(false)
@@ -19,7 +19,6 @@ const Layout = () => {
       </div>
       <footer>
         <div className={styles.footerLogo}>
-          <BookIcon className={styles.bookIcon} />
           <p>오늘의책</p>
         </div>
         <button type='button' className={styles.githubBtn} onClick={handleClickGithub}>

@@ -134,12 +134,13 @@ const Detail = () => {
       {data && (
         <div>
           <div className={styles.book}>
-            <img
-              key={data.documents[0].isbn}
-              className={styles.bookImg}
-              src={data.documents[0].thumbnail}
-              alt={`${data.documents[0].title}_img`}
-            />
+            <div className={styles.bookImg}>
+              <img
+                key={data.documents[0].isbn}
+                src={data.documents[0].thumbnail}
+                alt={`${data.documents[0].title}_img`}
+              />
+            </div>
             <div className={styles.contents}>
               <div className={styles.bookTitle}>
                 <div className={styles.title}>{data.documents[0].title}</div>

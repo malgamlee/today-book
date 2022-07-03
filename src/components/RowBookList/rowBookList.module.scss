@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .rowBookList {
   display: flex;
@@ -7,7 +8,7 @@
   .bookList {
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 90%;
     margin: 30px 0;
 
     :root[color-theme='dark'] & {
@@ -19,14 +20,14 @@
     }
 
     .bookItem {
-      display: flex;
-      justify-content: center;
+      // display: flex;
+      // justify-content: center;
       width: 20%;
       padding: 10px;
       margin: 0 auto;
 
       .image {
-        width: 130px;
+        width: 100%;
         border: 1px solid colors.$GRAYE;
         box-shadow: rgba(0, 0, 0, 19%) 0 10px 20px, rgba(0, 0, 0, 23%) 0 6px 6px;
       }
@@ -38,17 +39,20 @@
         color: colors.$BLACK;
 
         .number {
-          font-size: 30px;
+          font-size: 23px;
+          // font-size: 30px;
           font-weight: 500;
           line-height: 30px;
         }
 
         .explain {
+          width: 100%;
+          margin: 0 5px;
           text-align: right;
 
           .title {
             display: block;
-            width: 100px;
+            width: 100%;
             overflow: hidden;
             font-size: 15px;
             text-overflow: ellipsis;
@@ -57,7 +61,7 @@
 
           .authors {
             display: block;
-            width: 100px;
+            width: 100%;
             overflow: hidden;
             font-size: 12px;
             font-weight: 200;
@@ -95,6 +99,74 @@
   .active {
     .icon {
       background-color: black;
+    }
+  }
+}
+
+@include responsive.after(MD) {
+  .rowBookList {
+    .bookList {
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      margin: 30px 0;
+
+      :root[color-theme='dark'] & {
+        .bookItem {
+          .bookWrapper {
+            color: colors.$WHITE;
+          }
+        }
+      }
+
+      .bookItem {
+        // display: flex;
+        // justify-content: center;
+        width: 20%;
+        padding: 10px;
+        margin: 0 auto;
+
+        .image {
+          width: 100%;
+        }
+
+        .bookWrapper {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+          color: colors.$BLACK;
+
+          .number {
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 30px;
+          }
+
+          .explain {
+            text-align: right;
+
+            .title {
+              display: block;
+              width: 100px;
+              overflow: hidden;
+              font-size: 15px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            .authors {
+              display: block;
+              width: 100px;
+              overflow: hidden;
+              font-size: 12px;
+              font-weight: 200;
+              line-height: 20px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
     }
   }
 }

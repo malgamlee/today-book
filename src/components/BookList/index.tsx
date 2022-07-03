@@ -78,7 +78,7 @@ const BookList = ({ search, title, next, isLink, storeName }: Props) => {
   }, [moreData, next, pageNum, search, target])
 
   return (
-    <div>
+    <div className={styles.bookList}>
       {dataExist ? (
         <div>
           <BookItem itemList={itemList} storeName={storeName} title={title} isLink={isLink} />

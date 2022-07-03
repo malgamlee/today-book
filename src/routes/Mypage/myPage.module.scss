@@ -1,14 +1,18 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .myPage {
+  margin: 0 15px;
+
   .buttonWrapper {
     display: flex;
+    flex-wrap: wrap;
 
     .button {
       width: 200px;
       height: 200px;
       padding: 15px 0;
-      margin-right: 20px;
+      margin: 10px 20px 0 0;
       font-size: 18px;
       font-weight: 500;
       border-radius: 15px;
@@ -40,5 +44,11 @@
       color: colors.$WHITE;
       background-color: #035397;
     }
+  }
+}
+
+@include responsive.after(MD) {
+  .myPage {
+    margin: 0;
   }
 }

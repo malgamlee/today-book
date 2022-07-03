@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .search {
   display: flex;
@@ -9,7 +10,7 @@
   box-shadow: rgba(0, 0, 0, 24%) 0 0 8px;
 
   .searchWrapper {
-    width: 70%;
+    width: 90%;
     height: 100%;
 
     .searchInput {
@@ -96,6 +97,14 @@
 
     .isOpen {
       display: block;
+    }
+  }
+}
+
+@include responsive.after(MD) {
+  .search {
+    .searchWrapper {
+      max-width: 900px;
     }
   }
 }
