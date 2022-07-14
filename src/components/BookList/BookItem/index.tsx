@@ -23,6 +23,8 @@ const BookItem = ({ itemList, storeName, title, isLink }: Props) => {
     setBookIsbn(String(isbn))
   }
 
+  const filterEscape = (value: string) => String(value).replaceAll('/', '%2F')
+
   if (storeName !== '') storeData = store.get(storeName)
   const bookItems =
     itemList.length > 0 &&
@@ -31,7 +33,7 @@ const BookItem = ({ itemList, storeName, title, isLink }: Props) => {
       .map((item: SearchStructure) => (
         <li key={item.isbn} className={styles.item}>
           {isLink ? (
-            <Link to={`../detail/${item.publisher} ${item.title}`}>
+            <Link to={`../detail/${item.publisher} ${filterEscape(item.title)}`}>
               {item.thumbnail === '' ? (
                 <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
               ) : (
@@ -55,7 +57,7 @@ const BookItem = ({ itemList, storeName, title, isLink }: Props) => {
   const storeItems = storeData.map((item: RatingStructure) => (
     <li key={item.isbn} className={styles.item}>
       {isLink ? (
-        <Link to={`../detail/${item.publisher} ${item.title}`}>
+        <Link to={`../detail/${item.publisher} ${filterEscape(item.title)}`}>
           {item.thumbnail === '' ? (
             <img className={styles.bookImg} src={noImage} alt={item.thumbnail} />
           ) : (

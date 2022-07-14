@@ -9,10 +9,12 @@ import { useState, MouseEvent, useEffect } from 'react'
 import { useRecoil } from 'hooks/state'
 import { readingStoreState, likeStoreState, ratingStoreState } from 'states/storeState'
 import { RatingStructure, SearchStructure } from 'types/searchStructure'
+import noImage from 'assets/images/noImage.png'
 import store from 'store'
 
 const Detail = () => {
   const { paramValue } = useParams()
+  const filterParam = String(paramValue).replaceAll(/%2F/gi, '%252F')
   const [isInReading, setIsInReading] = useState(false)
   const [isInLike, setIsInLike] = useState(false)
   const [readingStore, setreadingStore] = useRecoil(readingStoreState)
@@ -23,10 +25,10 @@ const Detail = () => {
   const [ratingStar, setRatingStar] = useState(0)
 
   const { data } = useQuery(
-    ['getSearchListApi', paramValue],
-    () => getSearchListApi(paramValue, 1).then((res) => res.data),
+    ['getSearchListApi', filterParam],
+    () => getSearchListApi(filterParam, 1).then((res) => res.data),
     {
-      enabled: !!paramValue,
+      enabled: !!filterParam,
     }
   )
 
@@ -135,11 +137,15 @@ const Detail = () => {
         <div>
           <div className={styles.book}>
             <div className={styles.bookImg}>
-              <img
-                key={data.documents[0].isbn}
-                src={data.documents[0].thumbnail}
-                alt={`${data.documents[0].title}_img`}
-              />
+              {data.documents[0].thumbnail === '' ? (
+                <img className={styles.bookImg} src={noImage} alt={`${data.documents[0].title}`} />
+              ) : (
+                <img
+                  key={data.documents[0].isbn}
+                  src={data.documents[0].thumbnail}
+                  alt={`${data.documents[0].title}`}
+                />
+              )}
             </div>
             <div className={styles.contents}>
               <div className={styles.bookTitle}>
