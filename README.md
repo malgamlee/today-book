@@ -1,7 +1,7 @@
 # 오늘의 책📚
 
 ## 배포 링크
-🔗 today-book.vercel.app
+🔗 https://today-book.vercel.app/
 
 ## Dependencies
 
