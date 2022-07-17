@@ -131,6 +131,11 @@ const Detail = () => {
     setRatingStore(ratingStore)
   }
 
+  const convertAuthor = (authors: Array<string>) => {
+    const tmpAuthors = authors.join(' ').split(' ').join(', ')
+    return tmpAuthors
+  }
+
   return (
     <div className={styles.detail}>
       {data && (
@@ -150,7 +155,7 @@ const Detail = () => {
             <div className={styles.contents}>
               <div className={styles.bookTitle}>
                 <div className={styles.title}>{data.documents[0].title}</div>
-                <div className={styles.author}>{data.documents[0].authors} 저</div>
+                <div className={styles.author}>{convertAuthor(data.documents[0].authors)} 저</div>
                 <div className={styles.author}>
                   {data.documents[0].publisher} 출판 ({data.documents[0].datetime.split('T')[0].replaceAll('-', '. ')})
                 </div>
