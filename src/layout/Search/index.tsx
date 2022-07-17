@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, MouseEvent, useMemo, Dispatch } from 'react'
+import { ChangeEvent, FormEvent, MouseEvent, useMemo, Dispatch, useEffect } from 'react'
 import { CloseIcon, LeftArrowIcon, SearchIcon } from 'assets/svgs'
 import styles from './search.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -75,11 +75,21 @@ const Search = ({ searchOpen, setSearchOpen }: Props) => {
     store.set('searchStore', [])
   }
 
+  const convertAuthor = (authors: Array<string>) => {
+    if (!authors) return ''
+    if (authors.length === 1) return authors[0]
+    const tmpAuthors = authors.join(' ').split(' ')
+    if (tmpAuthors.includes(input)) {
+      return `${input} 외 ${tmpAuthors.length - 1}명`
+    }
+    return `${tmpAuthors[0]} 외 ${tmpAuthors.length - 1}명`
+  }
+
   const inputSearchList = data?.documents.map((item: SearchStructure) => (
     <li className={styles.searchItem} key={item.isbn}>
       <Link onClick={handleInputClick} to={`detail/${item.publisher} ${item.title}`} className={styles.searchItemLink}>
         <span className={styles.bookTitle}>{item.title}</span>
-        <span className={styles.bookAuthors}>{item.authors}</span>
+        <span className={styles.bookAuthors}>{convertAuthor(item.authors)}</span>
       </Link>
     </li>
   ))
@@ -92,10 +102,10 @@ const Search = ({ searchOpen, setSearchOpen }: Props) => {
           <li key={key} className={cx(styles.searchItem)}>
             <Link to={`searchresult/${item}`} className={cx(styles.searchItemLink)}>
               {item}
+              <button className={styles.deleteItem} type='button'>
+                <CloseIcon className={styles.icon} />
+              </button>
             </Link>
-            <button className={styles.deleteItem} type='button'>
-              <CloseIcon className={styles.icon} />
-            </button>
           </li>
         )
       })}
