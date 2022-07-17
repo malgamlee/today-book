@@ -48,7 +48,7 @@ const Main = () => {
         베스트셀러
         <RowBookList bookList={bestSeller} />
       </div>
-      <div className={styles.test}>
+      {/* <div className={styles.test}>
         <h2> Responsive </h2>
         <Slider {...settings}>
           <div>
@@ -76,7 +76,7 @@ const Main = () => {
             <h3>8</h3>
           </div>
         </Slider>
-      </div>
+      </div> */}
     </div>
   )
 }
