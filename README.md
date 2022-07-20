@@ -25,7 +25,7 @@
 
 - 상단의 nav를 통해서 다른 페이지로 이동할 수 있습니다.
 
-## 검색 기능
+### 검색 기능
 <img width="569" alt="image" src="https://user-images.githubusercontent.com/88325253/179391669-6a6b1b15-3e94-467f-accf-616ceaf3a5cf.png">
 
 - nav의 검색 버튼을 클릭하면 위와 같이 검색창이 등장합니다.
@@ -43,7 +43,7 @@
 - 검색 목록에서 클릭을 할 경우, 클릭한 도서에 대한 상세 페이지로 이동합니다.
 - 검색창에서 엔터를 누를 경우, 입력한 내용에 대한 검색 페이지로 이동합니다.
 
-## 책 상세 페이지
+### 책 상세 페이지
 <img width="551" alt="image" src="https://user-images.githubusercontent.com/88325253/179393012-be7a2d10-58ef-4a99-84d8-0b91378c4c90.png">
 
 - 검색 목록에서 도서를 선택할 경우, 위와 같이 도서 상세 페이지로 이동합니다.
@@ -56,17 +56,31 @@
   - 책 표지를 클릭하면 해당 도서애 대한 상세 내용을 확인할 수 있습니다.
   - `더보기` 버튼을 클릭하면 저자의 다른 도서를 모두 확인할 수 있습니다.
 
-## 검색 페이지
+### 검색 페이지
 <img width="652" alt="image" src="https://user-images.githubusercontent.com/88325253/179393240-d15d971e-b0c2-4fac-b91d-d61d071035ef.png">
 
 - 검색 기능에서 엔터를 누르거나, 상세 페이지에서 저자의 책 더보기 버튼을 눌렀을 때 해당 페이지로 이동합니다.
 - 무한스크롤을 통해 도서가 출력됩니다.
 
+### 마이페이지
+<img width="378" alt="image" src="https://user-images.githubusercontent.com/88325253/179905541-eabe0022-ec9c-4420-b636-d5592d189539.png">
 
+- 도서 상세 페이지에서 평가했던 도서, 읽고 싶은 도서, 읽고 있는 도서를 확인할 수 있는 버튼 세 개가 있습니다.
+- 버튼의 오른쪽 모서리에는 저장된 도서가 총 몇 권인지 출력됩니다.
 
+<img width="374" alt="image" src="https://user-images.githubusercontent.com/88325253/179905774-73eac5a1-53e0-41a3-84c4-4af260361b4b.png">
+
+- 저장된 도서가 출력됩니다. 
+- 도서 클릭 시, 도서 상세 페이지로 이동합니다.
+- 상단의 breadcrumb을 통해 현재 페이지가 무슨 페이지인지 확인할 수 있고, 클릭하여 이전 페이지로 이동할 수 있습니다.
+
+### 반응형 적용
+#### 메인 화면
 <img width="419" alt="image" src="https://user-images.githubusercontent.com/88325253/179391628-c0f87465-0414-4765-a617-dea3c2fd192e.png">
 
+- 미디어 쿼리를 이용해 반응형으로 구현했습니다
+- 화면의 크기가 일정 이하로 줄어들 경우 상단의 메뉴바의 디자인이 변경됩니다.
 
-
-
+#### 도서 상세 페이지
+<img width="349" alt="image" src="https://user-images.githubusercontent.com/88325253/179905328-7628b5c6-83cc-4fca-af79-eebc74eae297.png">
 
