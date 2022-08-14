@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, MouseEvent, useMemo, Dispatch, useEffect } from 'react'
+import { ChangeEvent, FormEvent, MouseEvent, useMemo, Dispatch, useEffect, useRef, BaseSyntheticEvent } from 'react'
 import { CloseIcon, LeftArrowIcon, SearchIcon } from 'assets/svgs'
 import styles from './search.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -94,6 +94,28 @@ const Search = ({ searchOpen, setSearchOpen }: Props) => {
     </li>
   ))
 
+  const useOutsideClick = (callback: () => void) => {
+    const ref = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const handleClick = (event: BaseSyntheticEvent | globalThis.MouseEvent) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          callback()
+        }
+      }
+
+      document.addEventListener('click', handleClick)
+
+      return () => {
+        document.removeEventListener('click', handleClick)
+      }
+    }, [callback, ref])
+
+    return ref
+  }
+
+  const clickRef = useOutsideClick(handleSearchClick)
+
   const recentSearchList = (
     <ul>
       {searchStore.map((item: string, idx: number) => {
@@ -113,12 +135,9 @@ const Search = ({ searchOpen, setSearchOpen }: Props) => {
   )
 
   return (
-    <div className={styles.search}>
+    <div className={styles.search} ref={clickRef}>
       <div className={styles.searchWrapper}>
         <form className={styles.searchInput} onSubmit={handleSubmit}>
-          <button type='button' onClick={handleSearchClick}>
-            <LeftArrowIcon className={styles.icon} />
-          </button>
           <input
             type='text'
             placeholder='검색어를 입력하세요.'
