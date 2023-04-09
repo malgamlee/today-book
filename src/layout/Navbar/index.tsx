@@ -33,9 +33,9 @@ const Navbar = ({ searchOpen, setSearchOpen }: Props) => {
           <BookIcon className={styles.bookIcon} />
         </Link>
         <div className={styles.buttonWrapper}>
-          <button type='button' className={styles.myPage} onClick={handleSearchClick}>
+          {/* <button type='button' className={styles.myPage} onClick={handleSearchClick}>
             <SearchIcon />
-          </button>
+          </button> */}
           <Link to='mypage' className={styles.myPage}>
             <PersonIcon />
           </Link>
