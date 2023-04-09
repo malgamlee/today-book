@@ -1,4 +1,4 @@
-import { BookmarkIcon, EyeIcon, PlusIcon, StarIcon } from 'assets/svgs'
+import { BookmarkIcon, EyeIcon, PenIcon, PlusIcon, StarIcon } from 'assets/svgs'
 import { useQuery } from 'react-query'
 import { Link, useParams } from 'react-router-dom'
 import { getSearchListApi } from 'services/bookSearchApi'
@@ -178,6 +178,14 @@ const Detail = () => {
                   ))}
                 </div>
                 <div className={styles.buttonWrapper}>
+                  <button
+                    type='button'
+                    onClick={handleClickBtn}
+                    className={cx(styles.smallBtn, { [styles.isInLike]: isInReading })}
+                  >
+                    <PenIcon className={styles.icon} />
+                    <p>코멘트</p>
+                  </button>
                   <button
                     type='button'
                     data-value='likeStore'
