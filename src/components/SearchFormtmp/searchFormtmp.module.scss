@@ -1,0 +1,61 @@
+@use '/src/styles/constants/colors';
+
+.searchForm {
+  position: relative;
+  background-color: white;
+
+  :root[color-theme='dark'] & {
+    .formWrapper {
+      background-color: colors.$GRAY2;
+
+      .cancelBtn {
+        color: colors.$WHITE;
+        background-color: colors.$GRAY2;
+      }
+    }
+  }
+
+  .formWrapper {
+    display: flex;
+    background-color: colors.$WHITE;
+
+    .form {
+      display: flex;
+      width: 100%;
+      padding: 5px 15px;
+      background-color: colors.$GRAYE;
+      border-radius: 10px;
+
+      .input {
+        width: 90%;
+        height: 30px;
+        padding-left: 10px;
+        font-size: 14px;
+        background-color: colors.$GRAYE;
+      }
+
+      .icon {
+        width: 20px;
+        color: colors.$GRAY6;
+      }
+
+      .removeBtn {
+        margin-top: 3px;
+
+        .removeIcon {
+          width: 20px;
+        }
+      }
+    }
+
+    .cancelBtn {
+      display: none;
+      width: 50px;
+      background-color: white;
+    }
+
+    .isExist {
+      display: block;
+    }
+  }
+}
